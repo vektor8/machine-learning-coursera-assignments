@@ -15,7 +15,8 @@ m = length(y); % number of training examples
 %               derivatives of the cost w.r.t. each parameter in theta
 J = 1/m * sum(-y'*log(sigmoid(X*theta)) - (1-y')*log(1-sigmoid(X*theta))) + lambda/(2*m)*(sum(theta.^2)-theta(1)^2);
 temp = 1/m*(sigmoid(X*theta) - y)'*X;
-grad = temp + lambda/m*theta';
+grad = temp + lambda/m*theta;
+grad = grad(1,:);
 grad(1,1) = temp(1,1);
 
 
